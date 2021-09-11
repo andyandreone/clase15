@@ -75,33 +75,63 @@ router.post("/guardar",(req, res) => {
     res.redirect('/productos/listar');
 })
 
+/*
 router.get("/actualizar/:id",(req,res)=>{
     res.render('modificarProducto', isAdmin)
 })
-
+*/
 router.put("/actualizar/:id", (req, res) => {
-    try {
-         fs.readFile('productos.txt','utf-8',(err, data)=>{
-        data = data.toString('utf-8')
-        data = JSON.parse(data)
-        let id = parseInt(req.params.id)
-        data[id] = {
-            "id": parseInt(id),
-            "title": req.query.title,
-            "price": parseInt(req.query.price),
-            "thumbnail": req.query.thumbnail
+    
+        if(isAdmin.admin==true){
+            try {
+                fs.readFile('productos.txt','utf-8',(err, data)=>{
+                    data = data.toString('utf-8')
+                    data = JSON.parse(data)
+                    let id = parseInt(req.params.id)
+                    data[id] = {
+                        "id": parseInt(id),
+                        "title": req.query.title,
+                        "price": parseInt(req.query.price),
+                        "thumbnail": req.query.thumbnail
+                    }
+                    res.status(200).json(data[id])
+                    fs.promises
+                             .writeFile('productos.txt',JSON.stringify(data, null, '\t'))
+                             .then(_=>{
+                                 console.log("actualizado con exito");
+                             })
+                  });
+                } catch(err){
+                    throw new Error(err)
+                }
+        }else{
+            res.send("Acceso Denegado")
         }
-        res.status(200).json(data[id - 1])
-        fs.promises
-                 .writeFile('productos.txt',JSON.stringify(data, null, '\t'))
-                 .then(_=>{
-                     console.log("actualizado con exito");
-                 })
-      });
-    } catch(err){
-        throw new Error(err)
+        
+})
+
+router.delete("/borrar/:id", (req, res) => {
+    if(isAdmin.admin==true){
+        try {
+            fs.readFile('productos.txt','utf-8',(err, data)=>{
+           data = data.toString('utf-8')
+           data = JSON.parse(data)
+           let id = parseInt(req.params.id)
+           res.json(data[id])
+           data.splice( id, 1 );
+           fs.promises
+                    .writeFile('productos.txt',JSON.stringify(data, null, '\t'))
+                    .then(_=>{
+                        console.log("Eliminado con exito");
+                    })
+          });
+          } catch(err){
+               throw new Error(err)
+          }
+    }else{
+        res.send("Acceso Denegado")
     }
-    res.redirect('/productos/listar');
+    
 })
 
 module.exports = router;

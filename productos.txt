@@ -13,9 +13,9 @@
 	},
 	{
 		"id": 2,
-		"title": "mouse",
-		"price": 900,
-		"thumbnail": "https://cdn1.iconfinder.com/data/icons/technology-and-hardware-2/200/vector_66_07-256.png"
+		"title": "computadora70",
+		"price": 98000,
+		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vo14/100/2-3-256.png"
 	},
 	{
 		"id": 3,
@@ -34,11 +34,5 @@
 		"title": "phone2",
 		"price": 40000,
 		"thumbnail": "https://cdn2.iconfinder.com/data/icons/it-technology/70/phone-256.png"
-	},
-	{
-		"id": 6,
-		"title": "computadora",
-		"price": 98000,
-		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vol4/100/2-3-256.png"
 	}
 ]
