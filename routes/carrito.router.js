@@ -12,7 +12,7 @@ router.get('/',(req,res)=>{
 
         const json = JSON.parse(data.toString('utf-8'));
         products.items = json
-        res.render('prouctos', products)
+        res.render('carrito', products)
         
       
      }).catch(err=>{

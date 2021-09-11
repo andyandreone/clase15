@@ -1,0 +1,30 @@
+ <div class="container">
+     {{#if admin}}
+      <div class="row">
+          <h2>Ingrese un producto</h2>
+        <form action="/productos/actualizar/2" method="PUT" enctype="application/x-www-form-urlencoded">
+          <div class="row">
+              <div class="mb-3">
+                  <label for="title">Ingrese el titulo</label>
+                  <input type="text" name="title" id="" class="form-control">
+              </div>
+              <div class="mb-3">
+                  <label for="price">Ingrese el precio</label>
+                  <input type="text" name="price" id="" class="form-control">
+              </div>
+              <div class="mb-3">
+                  <label for="thumbnail">Ingrese la URL de la imagen</label>
+                  <input type="text" name="thumbnail" id="" class="form-control">
+              </div>
+              <div class="mb-3">
+                  <input type="submit" value="Guardar" class="btn btn-primary">
+              </div>
+          </div>
+      </form>
+        {{else}}
+        <div>
+            <h2>No tienes permisos para acceder a esta seccion</h2>
+        </div>
+      </div>
+       {{/if}}
+    </div>
