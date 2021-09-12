@@ -12,7 +12,6 @@ router.get('/listar',(req,res)=>{
                 }
                 const json = JSON.parse(data.toString('utf-8'));
                 products.items = json
-                console.log(products)
                 res.render('carrito', products)
             }else{
                 res.send("No hay productos en agregados")
