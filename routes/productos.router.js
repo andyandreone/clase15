@@ -44,19 +44,27 @@ router.get("/agregar",(req,res)=>{
 let productos = []
 
 class Producto {
-  constructor (title, price, thumbnail) {
+  constructor (title, description, code, price, thumbnail, stock, time) {
       this.id = productos.length+1
       this.title = title
+      this.description = description
+      this.code = code
       this.price = price
       this.thumbnail = thumbnail
+      this.stock = stock
+      this.time = time
   }
 }
 
 router.post("/guardar",(req, res) => {
+    let time = new Date
+    let code = req.body.code
     let title = req.body.title
+    let description = req.body.description
     let price = parseInt(req.body.price)
     let thumbnail = req.body.thumbnail
-    let producto = new Producto(title, price, thumbnail)     
+    let stock = req.body.stock
+    let producto = new Producto(title, description,code, price, thumbnail, stock, time)     
         if(fs.existsSync('productos.txt')){
             fs.promises.readFile('productos.txt').then(data =>{
                 const json = JSON.parse(data.toString('utf-8'));
@@ -75,11 +83,6 @@ router.post("/guardar",(req, res) => {
     res.redirect('/productos/listar');
 })
 
-/*
-router.get("/actualizar/:id",(req,res)=>{
-    res.render('modificarProducto', isAdmin)
-})
-*/
 router.put("/actualizar/:id", (req, res) => {
     
         if(isAdmin.admin==true){
@@ -91,8 +94,12 @@ router.put("/actualizar/:id", (req, res) => {
                     data[id] = {
                         "id": parseInt(id),
                         "title": req.query.title,
+                        "description" : req.query.description,
+                        "code": req.query,code,
                         "price": parseInt(req.query.price),
-                        "thumbnail": req.query.thumbnail
+                        "thumbnail": req.query.thumbnail,
+                        "stock": req.query.stock,
+                        "time": new Date
                     }
                     res.status(200).json(data[id])
                     fs.promises
@@ -105,7 +112,14 @@ router.put("/actualizar/:id", (req, res) => {
                     throw new Error(err)
                 }
         }else{
-            res.send("Acceso Denegado")
+            let json={
+                "error": "-1",
+                "descripcion": {
+                    "ruta": req.originalUrl,
+                    "metodo": req.method
+                }
+            }
+            res.json(json)
         }
         
 })
@@ -129,7 +143,14 @@ router.delete("/borrar/:id", (req, res) => {
                throw new Error(err)
           }
     }else{
-        res.send("Acceso Denegado")
+        let json={
+            "error": "-1",
+            "descripcion": {
+                "ruta": req.originalUrl,
+                "metodo": req.method
+            }
+        }
+        res.json(json)
     }
     
 })

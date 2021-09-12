@@ -1,38 +1,42 @@
 [
 	{
 		"id": 0,
-		"title": "computadora",
-		"price": 12345,
-		"thumbnail": "https://cdn4.iconfinder.com/data/icons/creative-process-16/512/Logo_Design-256.png"
+		"title": "computadora12",
+		"description": " i7 64gb",
+		"code": "CDRHR",
+		"price": 98999,
+		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vol4/100/2-3-256.png",
+		"stock": "123",
+		"time": "2021-09-11T14:30:18.437Z"
 	},
 	{
 		"id": 1,
-		"title": "monitor",
-		"price": 12000,
-		"thumbnail": "https://cdn4.iconfinder.com/data/icons/basic-office-1/300/computer-256.png"
+		"title": "computadora12",
+		"description": " i7 64gb",
+		"code": "CDRHR",
+		"price": 98999,
+		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vol4/100/2-3-256.png",
+		"stock": "123",
+		"time": "2021-09-11T14:30:18.437Z"
 	},
 	{
 		"id": 2,
-		"title": "computadora70",
-		"price": 98000,
-		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vo14/100/2-3-256.png"
+		"title": "computadora12",
+		"description": " i7 64gb",
+		"code": "CDRHR",
+		"price": 98999,
+		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vol4/100/2-3-256.png",
+		"stock": "123",
+		"time": "2021-09-11T14:30:18.437Z"
 	},
 	{
 		"id": 3,
-		"title": "router",
-		"price": 1200,
-		"thumbnail": "https://cdn4.iconfinder.com/data/icons/STROKE/networking/png/256/access_point.png"
-	},
-	{
-		"id": 4,
-		"title": "phone",
-		"price": 50000,
-		"thumbnail": "https://cdn2.iconfinder.com/data/icons/hot-sale-flat/64/phone_sale_shop-128.png"
-	},
-	{
-		"id": 5,
-		"title": "phone2",
-		"price": 40000,
-		"thumbnail": "https://cdn2.iconfinder.com/data/icons/it-technology/70/phone-256.png"
+		"title": "computadora",
+		"description": " i7 64gb",
+		"code": "CDRHR",
+		"price": 3939393,
+		"thumbnail": "https://cdn0.iconfinder.com/data/icons/simple-line-vol4/100/2-3-256.png",
+		"stock": "12",
+		"time": "2021-09-11T20:03:58.640Z"
 	}
 ]
